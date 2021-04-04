@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #cfcece;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(175, 174, 174);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .list {
+    width: 100%;
+    max-width: 768px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    margin-top: 25px;
+}
+
+main .list .item {
+    padding: 15px;
+    border-bottom: 1px solid #CCC;
+    display: flex;
+    /* establish flex container */
+    flex-direction: row;
+    /* default value; can be omitted */
+    flex-wrap: nowrap;
+    /* default value; can be omitted */
+    justify-content: space-between;
+}
+
+main .list .item:last-of-type {
+    border-bottom: none;
+}
+
+main .list .item:hover {
+    background: rgba(241, 241, 241, 1.08);
+}
+
+input[type=text] {
+    width: 400px;
+    padding: 5px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.flex-item {
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.flex-start {
+    justify-content: space-between;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Tooltip Btn Delete */
+
+.tooltip-danger {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-danger .tooltiptext-danger {
+    visibility: hidden;
+    width: 140px;
+    background-color: rgb(255, 68, 44);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-danger .tooltiptext-danger::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(255, 68, 44) transparent transparent transparent;
+}
+
+.tooltip-danger:hover .tooltiptext-danger {
+    visibility: visible;
+    opacity: 1;
+}
+
+.pagenumbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    width: 50px;
+    padding: 6px;
+    color: #fff;
+    background: rgb(48, 49, 54);
+    border: none;
+    justify-content: space-between
+}
+
+.btn-primary:hover {
+    width: 50px;
+    padding: 6px;
+    color: #fff;
+    background: rgb(108, 109, 114);
+}
+
+.btn-danger {
+    width: 50px;
+    padding: 5px;
+    color: #fff;
+    background: rgb(253, 30, 0);
+    border: none;
+    justify-content: center
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background: rgb(255, 68, 44);
+}
+
+.pagenumbers button {
+    width: 50px;
+    height: 50px;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #707070;
+    margin: 5px;
+    transition: 0.4s;
+    color: rgb(8, 8, 8);
+    font-size: 18px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+#btn {
+    border: 3px solid black;
+    background: none;
+    padding: 10px 15px;
+    font-family: monospace;
+}
+
+#btn_add {
+    border: 3px solid black;
+    background: none;
+    padding: 10px 15px;
+    font-family: monospace;
+}
+
+.pagenumbers button:hover {
+    background-color: #adacac;
+}
+
+.pagenumbers button.active {
+    background-color: #2c272728;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
