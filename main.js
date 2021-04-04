@@ -17,18 +17,23 @@ const pagination_element = document.getElementById('pagination');
 let current_page = 1;
 let rows = 10;
 
-function removerPrimeiro() {
+function deleteFirt() {
     list_items.shift()
+    clearTimeout(window.timeout);
+    alertify.error('First item Deleted!', 0)
+    window.timeout = setTimeout(function() {
+        alertify.dismissAll();
+    }, 2000);
     DisplayList(list_items, list_element, rows, current_page);
     SetupPagination(list_items, pagination_element, rows)
 
 }
 
-function inserir() {
+function insert() {
     let item = `Item ${list_items.length + 1}`
     list_items.unshift(item)
     clearTimeout(window.timeout);
-    alertify.success('Boleto Inserido', 0)
+    alertify.success('Successfully inserted', 0)
     window.timeout = setTimeout(function() {
         alertify.dismissAll();
     }, 2000);
@@ -57,15 +62,15 @@ function DisplayList(items, wrapper, rows_per_page, page) {
 		<ul class="flex-container flex-start">
 		  <li class="flex-item">
 		    <div class="tooltip">
-			  <button class='btn-primary' onclick="copiarBoleto(${id})")">
-			  <span class="tooltiptext" id="to${id}">Copiar codigo do boleto</span>
-			  Copiar</button>
+			  <button class='btn-primary' onclick="copytoClipboard(${id})")">
+			  <span class="tooltiptext" id="to${id}">Copy to Clipboard</span>
+			  Copy</button>
 			</div>
 		  </li>
 		  <li class="flex-item">
 			<div class="tooltip-danger">
-			  <button class='btn-danger' onclick="deletarBoleto(${id})")">
-			  <span class="tooltiptext-danger" id="to${id}">Deletar boleto</span>
+			  <button class='btn-danger' onclick="deleteItem(${id})")">
+			  <span class="tooltiptext-danger" id="to${id}">Delete</span>
 			  ❌</button>
 			</div>
 		  </li>
@@ -105,11 +110,11 @@ function PaginationButton(page, items) {
     return button;
 }
 
-function deletarBoleto(item) {
+function deleteItem(item) {
     if (item > -1) {
         list_items.splice(item, 1);
         clearTimeout(window.timeout);
-        alertify.error('Boleto deletado!', 0)
+        alertify.error('Deleted!', 0)
         window.timeout = setTimeout(function() {
             alertify.dismissAll();
         }, 2000);
@@ -119,14 +124,14 @@ function deletarBoleto(item) {
 
 }
 
-function copiarBoleto(item) {
+function copytoClipboard(item) {
     var copyText = document.getElementById(item);
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
 
     var tooltip = document.getElementById(`to${item}`);
-    tooltip.innerHTML = `Boleto ${parseInt(item+1, 10)} copiado !`;
+    tooltip.innerHTML = `Copied ${parseInt(item+1, 10)} item!`;
 }
 
 
