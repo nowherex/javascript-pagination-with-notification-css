@@ -14,7 +14,7 @@ Home (page01):<br>
 ![plot](./imgs/home02.JPG)
 
 Insert notification css:<br>
-![plot](./imgs/insert_notification.JPG)
+![plot](./imgs/insert_notification.jpg)
 
 Delete notification css:<br>
 ![plot](./imgs/delete_notification.JPG)
